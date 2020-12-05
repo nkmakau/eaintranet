@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>EBU Experience Assurance</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="/plugins/jquery/dist/jquery.min.js"></script>
+  
+  <script src="/plugins/bootstrap/dist/js/popper.min.js"></script>
+  
+  <script src="/plugins/bootstrap/dist/js/bootstrap.min.js"></script>
+  
+  <link href="/plugins/jquery-ui/jquery-ui.min.css" rel="stylesheet">
+  <!-- Bootstrap -->
+  <link href="/plugins/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link href="/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <!-- Owl Carousel -->
+  <link href="/plugins/slick-carousel/slick/slick.css" rel="stylesheet">
+  <link href="/plugins/slick-carousel/slick/slick-theme.css" rel="stylesheet">
+  <!-- Fancy Box -->
+  <link href="/plugins/fancybox/jquery.fancybox.pack.css" rel="stylesheet">
+  <link href="/plugins/jquery-nice-select/css/nice-select.css" rel="stylesheet">
+  <link href="/plugins/seiyria-bootstrap-slider/dist/css/bootstrap-slider.min.css" rel="stylesheet">
+  <!-- CUSTOM CSS -->
+  <link href="/css/style.css" rel="stylesheet">
+  <!-- FAVICON -->
+  <link href="/images/green.png" rel="shortcut icon">
+  <!-- owl carousel css -->
+  <link href="/css/owl.carousel.css" rel="stylesheet">
+  
+  <link href="css/myCss.css" rel="stylesheet">
+  
+  <link href="/multimenu/style.css" rel="stylesheet" id="bootstrap-css">
+  
+  <style type="text/css">
+	.navbar-default.sticky-top {
+    background: #fff;
+    box-shadow: 0px 3px 6px 3px rgba(0, 0, 0, 0.06);
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-name: fadeInDown;
+    animation-name: fadeInDown;
+	}  
+  </style>
+   
+	
+	<link href="/css/topmenu.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="jumbotron jumbotron-fluid bg-success">
+    <div class="container text-center text-white">
+      <h1>EBU Experience Assurance</h1>
+      <p>I am Safaricom, I am Customer Obssessed.</p>
+    </div>
+  </div>
+  <section class="blog single-blog section">
+    <div class="container" style="max-width: 1350px;">
+        <div class="row">
+
+            <div class="container-fluid">
+                <!-- Edit Personal Info -->
+                <!--div class="widgetRCSC personal-info"-->
+                <form action="#" method="POST">
+                    <!-- EBU -->
+                    <div class="form-group row">
+
+                        <div class="col-lg-3">
+
+                            <label for="first-name">Month</label>
+                            <input type="text" class="form-control" id="month" name="month" value="October"
+                                style="height: 55%;" required readonly />
+                        </div>
+
+                        <div class="col-lg-3">
+                            <label for="first-name">Year</label>
+                            <input type="text" class="form-control" id="year" name="year" value="2020"
+                                style="height: 55%;" required readonly />
+                        </div>
+
+                        <!--<div class="col-lg-3" >
+            <label for="first-name">Date of Assessment</label>
+            
+          </div>-->
+
+                        <div class="col-lg-3">
+                            <label for="first-name">Date of Call</label>
+                            <input type="date" class="form-control" id="CallDate" name="CallDate"
+                                style="height: 55%;" required />
+                            <input type="hidden" class="form-control" id="AssessmentDate" name="AssessmentDate"
+                                value="10/28/2020 7:41:59 AM" style="height: 55%;" required readonly />
+                        </div>
+
+                        <div class="col-lg-3">
+                            <label for="first-name">Customer msisdn</label>
+                            <input type="number" class="form-control" id="CustomerNo" name="CustomerNo"
+                                style="height: 55%;" required />
+                        </div>
+
+                    </div>
+
+                    <div class="form-group row">
+
+                        <div class="col-lg-3">
+                            <label for="first-name">Customer Name</label>
+                            <input type="text" class="form-control" id="customername" name="customername"
+                                style="height:55%;" required />
+                        </div>
+
+                        <div class="col-lg-3">
+                            <label for="first-name">Company</label>
+                            <input type="text" class="form-control" id="Company" name="Company" style="height:55%;"
+                                required />
+                        </div>
+
+                        <div class="col-lg-3">
+                            <label for="first-name">Acc. relationship Manager</label>
+                            <select type="text" class="form-control" id="EmployeeName" name="EmployeeName"
+                                onChange="getSegments(this.value)" required>
+                                <option value="">Select ARM</option>
+
+                                <option value="Alice Gitonga">Alice Gitonga</option>
+
+                                <option value="Angela Kendagor">Angela Kendagor</option>
+
+                                <option value="Bernard Njoroge">Bernard Njoroge</option>
+
+                                <option value="Beryl Apiyo">Beryl Apiyo</option>
+
+                                <option value="Bobby Ochieng">Bobby Ochieng</option>
+
+                                <option value="Bruce Muchelule">Bruce Muchelule</option>
+
+                                <option value="Caroline Muriuki">Caroline Muriuki</option>
+
+                                <option value="Clara Nato">Clara Nato</option>
+
+                                <option value="Delight Wakoli">Delight Wakoli</option>
+
+                                <option value="Faith Njoroge">Faith Njoroge</option>
+
+                                <option value="Francis Kuria">Francis Kuria</option>
+
+                                <option value="Geraldine Wanjohi">Geraldine Wanjohi</option>
+
+                                <option value="Humphrey Kinyua">Humphrey Kinyua</option>
+
+                                <option value="Irene Wanjohi">Irene Wanjohi</option>
+
+                                <option value="Jared Adiki">Jared Adiki</option>
+
+                                <option value="Joan Aluoch">Joan Aluoch</option>
+
+                                <option value="Job Mwaniki">Job Mwaniki</option>
+
+                                <option value="Joseph Kamande">Joseph Kamande</option>
+
+                                <option value="Josephine Mawanda">Josephine Mawanda</option>
+
+                                <option value="Keren Mutheu">Keren Mutheu</option>
+
+                                <option value="Laura Migono">Laura Migono</option>
+
+                                <option value="Lee Aguko">Lee Aguko</option>
+
+                                <option value="Leornard Wambura">Leornard Wambura</option>
+
+                                <option value="Liz Nyiva Musyoka">Liz Nyiva Musyoka</option>
+
+                                <option value="Maureen Kinyi">Maureen Kinyi</option>
+
+                                <option value="Michael Ndirangu">Michael Ndirangu</option>
+
+                                <option value="Naomi Nyokabi">Naomi Nyokabi</option>
+
+                                <option value="Nicholas Mwirigi">Nicholas Mwirigi</option>
+
+                                <option value="Peter Oduor">Peter Oduor</option>
+
+                                <option value="Pius Juma">Pius Juma</option>
+
+                                <option value="Randy Shiholo">Randy Shiholo</option>
+
+                                <option value="Raymond Musyoka">Raymond Musyoka</option>
+
+                                <option value="Schola Munyao">Schola Munyao</option>
+
+                                <option value="Sidney Ashioya ">Sidney Ashioya </option>
+
+                                <option value="Stephen Ndete">Stephen Ndete</option>
+
+                                <option value="Stephen Oyuga">Stephen Oyuga</option>
+
+                                <option value="Tomno Peter">Tomno Peter</option>
+
+                                <option value="Vallary Obare">Vallary Obare</option>
+
+                                <option value="Wambuci Njunji">Wambuci Njunji</option>
+
+                                <option value="Yvonne Ingari">Yvonne Ingari</option>
+
+                                <option value="Zachary Bwire">Zachary Bwire</option>
+
+                                <option value="Zeddy Birech">Zeddy Birech</option>
+
+                            </select>
+                        </div>
+
+                        <div class="col-lg-3" id="Segment">
+                            <label for="first-name">Segment</label>
+                            <input type="text" class="form-control" id="Segment" name="Segment" style="height: 55%;"
+                                required readonly />
+                        </div>
+
+                        <script type="text/javascript">
+                            function getSegments(empname) {
+                                $.ajax({
+                                    type: "POST",
+                                    url: "getSegments.asp",
+                                    data: {
+                                        empname: empname
+                                    },
+                                    success: function (data) {
+                                        $("#Segment").html(data);
+                                    },
+                                    error: function (data) {
+                                        $("#Segment").html("Failed " + data);
+                                    }
+                                });
+                            }
+                        </script>
+
+
+                    </div>
+
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" data-toggle="tab" href="#lepamassessment">Acc. Relationship
+                                Manager Assessment</a>
+                        </li>
+
+                    </ul>
+
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div id="lepamassessment" class="container tab-pane active">
+                            <table class="table table-bordered table-condensed">
+                                <tr>
+                                    <th colspan="2">Availability(Measured as satisfaction with Account Manager on
+                                        responsiveness)</th>
+                                </tr>
+
+                                <tr>
+                                    <td>Is the RM easily reachable during the agreed working hours?(Call/physical
+                                        visits/Email)</td>
+
+                                    <td colspan="">Yes <input name="Availability" type="radio" value="100" /> &nbsp
+                                        No <input name="Availability" type="radio" value="0" />
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+                                    <th colspan="2">Technical Competencies</th>
+                                </tr>
+
+                                <tr>
+                                    <td>Is the RM proactive in offering solutions that address Your organization
+                                        needs?(Are your propositions well understood)</td>
+                                    <td colspan="">Yes <input name="Technical" type="radio" value="100" /> &nbsp No
+                                        <input name="Technical" type="radio" value="0" />
+                                    </td>
+                                </tr>
+
+                                <!--tr>
+                <th colspan="2">Capability of Operation</th>
+              </tr-->
+
+                                <!--tr>
+                <td>How satisfied are you with how your RM adequately manages the account and provides direction to the organization on available solutions?</td>
+                <td colspan="">
+                  <select type="number" name="Capability" id = "Capability" class = "form-control" >
+                    <option value = "">Select Score</option>
+                    <option value = "0">0</option>
+                    <option value = "1">1</option>
+                    <option value = "2">2</option>
+                    <option value = "3">3</option>
+                    <option value = "4">4</option>
+                    <option value = "5">5</option>
+                    <option value = "6">6</option>
+                    <option value = "7">7</option>
+                    <option value = "8">8</option>
+                    <option value = "9">9</option>
+                    <option value = "10">10</option>
+                  </select>
+                </td>
+              </tr-->
+
+                                <tr>
+                                    <th colspan="2">NPS</th>
+                                </tr>
+
+                                <tr>
+                                    <td>What is your Likelihood to recommend Safaricom Business based on the
+                                        relationship support offered by your Acc.Manager? On a scale of 0-10</td>
+                                    <td colspan="">
+                                        <select type="number" name="NPS" id="NPS" class="form-control">
+                                            <option value="">Select Score</option>
+                                            <option value="0">0</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                            <option value="7">7</option>
+                                            <option value="8">8</option>
+                                            <option value="9">9</option>
+                                            <option value="10">10</option>
+                                        </select>
+                                    </td>
+                                </tr>
+
+
+                                <tr>
+                                    <th colspan="2">Customer Feedback</th>
+                                </tr>
+                                <tr>
+                                    <td>You have given {call out RM's name} {call out the score}. What is it you
+                                        feel she needs to continue/maintain doing/ to improve to help serve you
+                                        better?</td>
+                                    <td colspan="2"><textarea class="form-control" name="npscomments" cols=""
+                                            rows=""></textarea></td>
+                                </tr>
+
+
+                                <tr>
+                                    <th colspan="2">Value for Money</th>
+                                </tr>
+
+                                <tr>
+                                    <td>Based on your overall experience with Safaricom Business, do you feel you
+                                        are getting value for money with regard to cost?</td>
+                                    <td colspan="">Yes <input name="Money" type="radio" value="100" />&nbsp No
+                                        <input name="Money" type="radio" value="0" /></td>
+                                </tr>
+
+                                <tr>
+                                    <td colspan="2"></td>
+                                </tr>
+
+                                <tr>
+                                    <td colspan="5">
+
+                                        <input name="btnSubmit" type="submit" value="Submit Acc.Manager Assessment"
+                                            class="btn btn-success"> <input name="Clear" type="reset" value="Clear"
+                                            class="btn btn-danger">
+
+                                    </td>
+                                </tr>
+
+
+                            </table>
+
+
+                        </div>
+
+                    </div>
+
+                    <!-- end Nav tabs -->
+                </form>
+
+
+            </div>
+        </div>
+
+        <div id="successalertModal" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title  text-center" style="color:green;">Success!</h4>
+                        <button class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <p class="text-center"></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-success" data-dismiss="modal" onclick="reload()">Close</button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+
+    </div>
+    </div>
+</section>
+</body>
+
+
+
+</html>

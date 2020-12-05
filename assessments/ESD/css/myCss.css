@@ -1,0 +1,26 @@
+.pages-search {
+	background: #39b54a;
+	padding: 30px 0;
+}
+
+
+.page-search .advance-search .form-control {
+border: 1px solid #fff;
+color: #fff;
+}
+
+article ul {
+margin-bottom: 0px;
+}
+.page-title {
+background: #39b54a;
+}
+
+.TextWrap{
+	float: right;
+	margin: 10px;
+}
+
+article img {
+	width: 50%;
+}

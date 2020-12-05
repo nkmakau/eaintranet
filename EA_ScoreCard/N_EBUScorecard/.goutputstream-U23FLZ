@@ -1,0 +1,227 @@
+<?php 
+	require_once('cond.php'); 
+	
+	//Get Intranet userdata via Joomla
+	//$user =& JFactory::getUser();
+	//$username = $user->get( 'username' );
+	$username = "dkinyanjui";
+	
+	//Get Userdata
+	$result_getUser = mysqli_query($link,"SELECT ekno2,name FROM cm_users WHERE username='" . $username . "'");
+	$row_getUser = mysqli_fetch_array($result_getUser);
+	
+	//Get Qualified User
+	$result_getQUser = mysqli_query($link,"SELECT email FROM cm_users WHERE block=0 AND (empposid='9' or empposid='10' or empposid='21' or empposid='11') AND snr='CC' AND username='" . $username . "'");
+	$row_getQUser = mysqli_fetch_assoc($result_getQUser);
+	$TotalQ = mysqli_num_rows($result_getQUser);
+	
+	if($TotalQ > 0) {
+		//Allow in
+	} else {
+		echo "
+			<script language='javacript'>
+				alert('You do not have rights to access this page. \n\n Please contact the systems Administrator for assistance.');
+				window.history.back();
+			</script>";
+	}
+	
+	//Get all data
+	$result_getData = mysqli_query($link,"SELECT * FROM EBU_ScoreCard WHERE username='" . $username . "'");
+	$row_getData = mysqli_fetch_array($result_getData);
+	$TotalData = mysqli_num_rows($result_getData);
+	
+	if($_SERVER['REQUEST_METHOD'] == 'POST') {
+		//Search records
+		if(isset($_POST['Search'])){
+			
+		}
+	} //End of Post
+?>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Update Scorecard 2018 - 2019</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="css/w3.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Encode+Sans+Condensed:400,600" rel="stylesheet">
+	<style>
+	body,h1,h2,h3,h4,h5,h6 {
+		font-family: "Encode Sans Condensed", Arial, Helvetica, sans-serif;
+	}
+	</style>
+</head>
+<body class="w3-content">
+
+<!-- !PAGE CONTENT! }-->
+<div class="w3-main w3-card" style="margin:20px 0;border:1px solid #ccc;">
+
+	<!-- Header-->
+	<div class="w3-container w3-green w3-border-bottom" id="Header">
+		<h1><b>EBU CARE SCORECARD <?php echo date("Y")." - ".date("Y",strtotime('+1 year')); ?></b></h1>
+	    	<!--hr style="width:100%;border:3px solid white" class="w3-round"-->		
+	</div>
+	<div class="w3-container w3-bar w3-green">
+		  <a href="#" class="w3-bar-item w3-button w3-border-left w3-border-right w3-right">Export</a>
+		  <a href="upload.php" class="w3-bar-item w3-button w3-white w3-border-left  w3-right">Upload</a>
+		  <a href="#" class="w3-bar-item w3-button w3-border-left  w3-right">Add/Update</a>
+		  <a href="index.php" class="w3-bar-item w3-button  w3-border-left  w3-right">Agent View</a>
+	</div>
+	<div class="w3-container">
+		<p class="w3-text-green"><b>Welcome <?php echo $row_getUser['name']; ?> - (<?php  echo $row_getUser['ekno2']; ?>)</b></p>
+	</div>
+  
+	<div id="scorecard" class="w3-container w3-padding">
+		<div class="w3-padding w3-pale-green w3-margin-bottom">
+			<p class="">Update:
+			</p>
+			<p class="w3-small">| EKNO | Username | Agentname | Skillset | Family | TM | Month | Adherence | Adherence PRD | NPS | NPS PDR | Interactions | Interactions PDR | Revenue | Revenue PDR | SR Quality | SR Quality PDR | Email Quality | Email Quality PDR | 
+			</p>
+  		</div>
+		<div class="w3-margin-bottom">
+			<form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>">
+				<table class="w3-table-all">
+					<tr class="w3-green w3-center">
+						<td colspan="4"><b>Search Records</b></td>
+					</tr>
+					<tr>
+						<th>Date</th>
+						<td><input class="w3-input w3-border w3-border-green" name="SDate" type="date"></td>
+						<th>Month</th>
+						<td><input class="w3-input w3-border w3-border-green" name="SMonth" type="month"></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td><input class="w3-green" name="Search" type="submit" value="Search"></td>
+					</tr>
+				</table>
+			</form>
+		</div>
+		<form method="post" action="">
+		<div class="w3-bar">
+			<button class="w3-bar-item w3-button w3-green w3-border-right" onclick=""><b>Single Update</b></button>
+			<button class="w3-bar-item w3-button w3-green" onclick=""><b>Batch Update</b></button>
+  		</div>
+		<div id="first" class="w3-container w3-border w3-border-green half">
+			<div class="w3-responsive w3-padding-16">
+			<form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>">
+				<table class="w3-table-all w3-hoverable w3-centered">
+					<tr class="w3-green">
+						<th><input class="w3-check" type="checkbox"></th>
+						<th>Date</th>
+						<th>Agent</th>
+						<th>Skillset</th>
+						<th>Manager</th>
+						<th>Month</th>
+						<th>Adherence</th>
+						<th>NPS</th>
+						<th>Interactions</th>
+						<th>Revenue</th>
+						<th>SR Quality</th>
+						<th>Email</th>
+						<th>Submitter</th>
+					</tr>
+					<?php 
+						if($TotalData > 0){ 
+							do {
+					?>
+					<tr class="w3-small">
+						<td><input class="w3-check" type="checkbox"></td>
+						<td><?php echo $row_getData['UploadDate']; ?></td>
+						<td><?php echo $row_getData['Agentname']. " (" .$row_getData['EKNO'].")"; ?></td>
+						<td><?php echo $row_getData['Skillset'] . "  (".$row_getData['Family'].")"; ?></td>
+						<td><?php echo $row_getData['TM']; ?></td>
+						<td><?php echo $row_getData['Month']; ?></td>
+						<td>
+							<?php 
+								if(is_numeric($row_getData['Adherence'])){
+									echo $row_getData['Adherence']."%<br><span class='w3-text-red'>PDR: ".$row_getData['AdherencePRD']."</span>"; 
+								} else {
+									echo "";
+								}
+							?>
+						</td>
+						<td>
+							<?php 
+								if(is_numeric($row_getData['NPS'])){
+									echo ($row_getData['NPS']*100)."<br><span class='w3-text-red'>PDR: ".$row_getData['NPSPDR']."</span>";
+								} else {
+									echo "";
+								}
+							?>
+						</td>
+						<td>
+							<?php 
+								if(is_numeric($row_getData['Interactions'])){
+									echo $row_getData['Interactions']."%<br><span class='w3-text-red'>PDR: ".$row_getData['InteractionsPDR']."</span>";
+								} else {
+									echo "";
+								}
+							?>
+						</td>
+						<td>
+							<?php 
+								if(is_numeric($row_getData['Revenue'])){
+									echo $row_getData['Revenue']."%<br><span class='w3-text-red'>PDR: ".$row_getData['RevenuePDR']."</span>"; 
+								} else {
+									echo "";
+								}
+							?>
+						</td>
+						<td>
+							<?php 
+								if(is_numeric($row_getData['SRQuality'])){
+									echo $row_getData['SRQuality']."%<br><span class='w3-text-red'>PDR: ".$row_getData['SRQualityPDR']."</span>"; 
+								} else {
+									echo "";
+								}
+							?>
+						</td>
+						<td>
+							<?php 
+								if(is_numeric($row_getData['EmailQuality'])){
+									echo $row_getData['EmailQuality']."%<br><span class='w3-text-red'>PDR: ".$row_getData['EmailQualityPDR']."</span>";
+								} else {
+									echo "";
+								}
+							?>
+						</td>
+						<td><?php echo $row_getData['Uploader']; ?></td>
+					</tr>	
+					<?php 
+							} while ($row_getData = mysqli_fetch_array($result_getData));
+						}
+					?>
+				</table>
+			</div>
+  		</div>
+  		</form>
+	</div>
+
+	<!-- Footer -->
+	<footer class="w3-container w3-padding w3-center w3-opacity w3-border-bottom">
+  		<p class="w3-tiny">Designed by <a href="https://kinyanjui.xyz" target="_blank">DK</a></p>
+	</footer>
+</div>
+	
+	<!-- Tabs Placement -->
+<script>
+	function openHalf(evt, halfname) {
+  		var i, x, tablinks;
+		x = document.getElementsByClassName("half");
+		for (i = 0; i < x.length; i++) {
+		  	x[i].style.display = "none";
+		}
+		tablinks = document.getElementsByClassName("tablink");
+		for (i = 0; i < x.length; i++) {
+			tablinks[i].className = tablinks[i].className.replace(" w3-green", "");
+		}
+		document.getElementById(halfname).style.display = "block";
+		evt.currentTarget.className += " w3-green";
+	}
+</script>
+</div></body>
+</html>

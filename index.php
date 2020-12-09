@@ -1,11 +1,11 @@
 <?php
 $user = "ebu_user";
-$password = "N@ir0b1??";
+$password = "K@jiado78??";
 $database = "EBU_database";
 
 try {
   $db = new PDO("mysql:host=localhost;dbname=$database", $user, $password);
-  echo "<h2>TODO</h2><ol>";
+  echo "<h2>Connected Successfully</h2><ol>";
 }
 
   catch (PDOException $e) {

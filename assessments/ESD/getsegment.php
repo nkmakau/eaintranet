@@ -5,7 +5,7 @@ include "dbconn.php";
 
 $selectedEmpname = @$_POST["empname"];
  
-$sqlSegments = "select Segment from ".tbl_users." where EmployeeName='".$selectedEmpname."' ";
+$sqlSegments = "select Segment from ".ebu_users." where EmployeeName='".$selectedEmpname."' ";
  
 $rsSegments = execute($sqlSegments);
  

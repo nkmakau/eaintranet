@@ -1,8 +1,8 @@
 <?php 
 	
 	ini_set('display_errors', 1); error_reporting(E_ALL);
-	require_once('N_EBUScorecard/config.php'); 
-	require_once('N_EBUScorecard/permissions.php'); 
+	// require_once('N_EBUScorecard/config.php'); 
+	// require_once('N_EBUScorecard/permissions.php'); 
 		
 	$agentUsername = "";
 	$agentName = "";

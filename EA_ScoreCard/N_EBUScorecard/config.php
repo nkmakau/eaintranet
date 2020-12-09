@@ -1,10 +1,10 @@
 <?php
-	require_once('../D_EBUCareScorecard/D_EBUCareScorecard/cond.php'); 
+	//require_once('/N_EBUScorecard/N_EBUScorecard/cond.php'); 
 	
-	//Get CMIntranet userdata
-	$user =& JFactory::getUser();
-	$username = $user->get('username');
-	//$username = "nkmakau";
+	// //Get CMIntranet userdata
+	// $user =& JFactory::getUser();
+	// $username = $user->get('username');
+	// //$username = "nkmakau";
 	
 	$DateTime = date("Y-m-d H:i:s");
 	

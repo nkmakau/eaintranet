@@ -1,8 +1,8 @@
 <?php
 // database connection code
 // $con = mysqli_connect('localhost', 'database_user', 'database_password','database');
-$con = mysqli_connect('localhost', 'ebu_user', 'K@jiado78??','EBU_database');
-
+//$con = mysqli_connect('localhost', 'ebu_user', 'K@jiado78??','EBU_database');
+include "dbconn.php";
 // Get post records
 $monthSelected = @$_POST["month"];
 $yearSelected = @$_POST["year"];

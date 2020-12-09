@@ -1,9 +1,10 @@
 <?php
+ini_set('display_errors', 1); error_reporting(E_ALL);
+
 $monthnow = date ('F');
 $yearnow = date ('Y');
-$now = date(format,[timestamp]);
+$now = time();
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -204,17 +205,12 @@ $now = date(format,[timestamp]);
                                     style="height: 55%;" required readonly />
                             </div>
 
-                            <!--<div class="col-lg-3" >
-								<label for="first-name">Date of Assessment</label>
-								s
-							</div>-->
-
                             <div class="col-lg-3">
                                 <label for="first-name">Date of SR</label>
                                 <input type="date" class="form-control" id="SRDate" name="SRDate" style="height: 55%;"
                                     required />
                                 <input type="hidden" class="form-control" id="AssessmentDate" name="AssessmentDate"
-                                    value="<?=$now?>" style="height: 55%;" required readonly />
+                                    value="<?php echo $now;?>" style="height: 55%;" required readonly />
                             </div>
 
                             <div class="col-lg-3">
@@ -233,7 +229,7 @@ $now = date(format,[timestamp]);
 									<?
 									while not ($rsEmployees.$eof or $rsEmployees.$bof);
 									?>
-									<option value="<?=$rsEmployees["EmployeeName"]?>"><?=$rsEmployees["EmployeeName"]?></option>
+									<option value="<?=$rsEmployees?>"><?=$rsEmployees?></option>
 									<?
 									$rsEmployees.$MoveNext;
 									}
